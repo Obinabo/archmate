@@ -1,0 +1,75 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# Remove the .php extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+#General Routes
+
+# Specific Admin rules
+RewriteRule ^admin/edit-user-acc admin/edit-user-acc.php [NC,L]
+RewriteRule ^admin/create-post admin/create-posts.php [NC,L]
+RewriteRule ^admin/posts admin/posts.php [NC,L]
+RewriteRule ^admin/rem-quote admin/rem-quote.php [NC,L]
+RewriteRule ^admin/quotes admin/quotes.php [NC,L]
+RewriteRule ^admin/properties admin/properties.php [NC,L]
+RewriteRule ^admin/create-properties admin/create-properties.php [NC,L]
+RewriteRule ^admin/delete-prop admin/delete-prop.php [NC,L]
+RewriteRule ^admin/edit-prop admin/edit-prop.php [NC,L]
+RewriteRule ^admin/rem-contact admin/rem-contact.php [NC,L]
+RewriteRule ^admin/contacts admin/contacts.php [NC,L]
+RewriteRule ^admin/forgot admin/forgot.php [NC,L]
+RewriteRule ^admin/forgot-pass admin/forgot-pass.php [NC,L]
+RewriteRule ^admin/edit-post admin/edit-post.php [NC,L]
+RewriteRule ^admin/delete-post admin/delete-post.php [NC,L]
+RewriteRule ^admin/delete-acc admin/delete-acc.php [NC,L]
+RewriteRule ^admin/view-acc admin/view-acc.php [NC,L]
+RewriteRule ^admin/settings admin/settings.php [NC,L]
+RewriteRule ^admin/pending-withdraw admin/pending-withdraw.php [NC,L]
+RewriteRule ^admin/withdraw admin/withdraw.php [NC,L]
+RewriteRule ^admin/pending-sales admin/pending-sales.php [NC,L]
+RewriteRule ^admin/pending-upgrade admin/pending-upgrade.php [NC,L]
+RewriteRule ^admin/pending-acc admin/pending-acc.php [NC,L]
+RewriteRule ^admin/withdraw admin/withdraw.php [NC,L]
+RewriteRule ^admin/affiliate-sales admin/affiliate-sales.php [NC,L]
+RewriteRule ^admin/realtors admin/affiliates.php [NC,L]
+
+# General rules
+RewriteRule ^contact view/contact.php [NC,L]
+RewriteRule ^property view/view-property.php [NC,L]
+RewriteRule ^properties view/properties.php [NC,L]
+RewriteRule ^about view/about.php [NC,L] 
+RewriteRule ^services view/services.php [NC,L]
+RewriteRule ^view-post view/view-post.php [NC,L]
+RewriteRule ^posts view/posts.php [NC,L]
+RewriteRule ^blog view/blog.php [NC,L]
+RewriteRule ^forgot-pass view/forgot-pass.php [NC,L]
+RewriteRule ^forgot view/forgot.php [NC,L]
+RewriteRule ^auth view/auth.php [NC,L] 
+RewriteRule ^affiliate view/affiliate.php [NC,L]
+RewriteRule ^verify view/verify.php [NC,L]
+RewriteRule ^payment-status view/payment-status.php [NC,L]
+RewriteRule ^payment-upgrade view/payment-upgrade.php [NC,L]
+RewriteRule ^withdraw view/withdraw.php [NC,L]
+RewriteRule ^earnings view/earnings.php [NC,L]
+RewriteRule ^referrals view/referrals.php [NC,L]
+RewriteRule ^sales view/sales.php [NC,L]
+RewriteRule ^settings view/settings.php [NC,L]
+RewriteRule ^edit-profile view/edit-profile.php [NC,L]
+RewriteRule ^profile view/profile.php [NC,L]
+RewriteRule ^logout view/logout.php [NC,L]
+RewriteRule ^login view/login.php [NC,L]
+RewriteRule ^register-sale view/register-sale.php [NC,L]
+RewriteRule ^dashboard view/dashboard.php [NC,L]
+RewriteRule ^delete-sale view/delete-sale.php [NC,L]
+RewriteRule ^delete-withdraw view/delete-withdraw.php [NC,L]
+
+
+ErrorDocument 404 view/404.php
+#RewriteRule ^ view/404.php [NC,L]
+</ifModule>
