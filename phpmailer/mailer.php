@@ -8,15 +8,15 @@ function sendEmail($recipient, $subject, $body) {
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->SMTPDebug = 0;
-    $mail->Host = 'mail.archmateestatesanh.com';
+    $mail->Host = '';
     $mail->SMTPAuth = true;
-    $mail->Username = 'support@archmateestatesanh.com';
-    $mail->Password = 'Archmate_2024';
+    $mail->Username = '';
+    $mail->Password = '';
     $mail->SMTPSecure = '';
     $mail->Port = 587;
     
     // Set email content and recipient(s)
-    $mail->setFrom('support@archmateestatesanh.com', 'Archmate Group');
+    $mail->setFrom('', '');
     $mail->addAddress($recipient);
     $mail->isHTML(true);
     $mail->Subject = $subject;
